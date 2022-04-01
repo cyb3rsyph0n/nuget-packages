@@ -9,6 +9,8 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "@Misc", "@Misc", "{13A0214D-F2C8-46BF-AF24-774A70DE78AC}"
 	ProjectSection(SolutionItems) = preProject
 		.gitignore = .gitignore
+		.github\gitversion.yml = .github\gitversion.yml
+		.github\workflows\build-deploy.yml = .github\workflows\build-deploy.yml
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Packages.Tests", "Packages.Tests\Packages.Tests.csproj", "{ECE95B74-013C-4909-AD02-684426529C30}"
