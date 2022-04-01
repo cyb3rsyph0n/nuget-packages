@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Diagnostics.CodeAnalysis;
+using CyberSyphon.TypedGuids;
 using FluentAssertions;
-using TypedGuids;
 using Xunit;
 
 namespace Packages.Tests.TypedGuids;

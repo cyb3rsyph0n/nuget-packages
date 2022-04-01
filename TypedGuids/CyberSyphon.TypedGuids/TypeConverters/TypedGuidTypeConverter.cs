@@ -1,10 +1,10 @@
 ﻿using System.ComponentModel;
 using System.Globalization;
 
-namespace TypedGuids.TypeConverters;
+namespace CyberSyphon.TypedGuids.TypeConverters;
 
 /// <summary>
-///     Used to parse TypedGuids from strings and other guids
+///     Used to parse CyberSyphon.TypedGuids from strings and other guids
 /// </summary>
 public class TypedGuidTypeConverter : TypeConverter
 {

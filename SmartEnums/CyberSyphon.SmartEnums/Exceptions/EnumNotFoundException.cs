@@ -1,6 +1,6 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 
-namespace SmartEnums.Exceptions;
+namespace CyberSyphon.SmartEnums.Exceptions;
 
 /// <summary>
 ///     Enum not found exception

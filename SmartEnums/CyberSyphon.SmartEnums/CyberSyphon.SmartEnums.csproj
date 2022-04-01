@@ -9,11 +9,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <PackageReference Include="NHibernate" Version="5.3.11" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <ProjectReference Include="..\SmartEnums\SmartEnums.csproj" />
+      <ProjectReference Include="..\..\CyberSyphon.Abstractions\CyberSyphon.Abstractions.csproj" />
     </ItemGroup>
 
 </Project>

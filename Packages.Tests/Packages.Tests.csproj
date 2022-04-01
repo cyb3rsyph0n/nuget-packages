@@ -22,7 +22,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\TypedGuids\TypedGuids\TypedGuids.csproj" />
+      <ProjectReference Include="..\TypedGuids\CyberSyphon.TypedGuids\CyberSyphon.TypedGuids.csproj" />
     </ItemGroup>
 
 </Project>

@@ -1,8 +1,8 @@
 ﻿using System.ComponentModel;
 using System.Text.Json.Serialization;
-using TypedGuids.TypeConverters;
+using CyberSyphon.TypedGuids.TypeConverters;
 
-namespace TypedGuids;
+namespace CyberSyphon.TypedGuids;
 
 /// <summary>
 ///     Type specific guid

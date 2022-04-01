@@ -1,7 +1,7 @@
-using Abstractions;
-using SmartEnums.Exceptions;
+using CyberSyphon.Abstractions;
+using CyberSyphon.SmartEnums.Exceptions;
 
-namespace SmartEnums;
+namespace CyberSyphon.SmartEnums;
 
 /// <summary>
 ///     Enum class for holding a name and value with operations to find by name
@@ -72,7 +72,7 @@ public abstract class SmartEnum<TType> : ISmartEnum where TType : SmartEnum<TTyp
             {
                 var b = (ISmartEnum) p.GetValue(null)!;
 
-                if (b?.Name == name) return (TType) b;
+                if (b.Name == name) return (TType) b;
             }
 
         throw new EnumNotFoundException($"{typeof(TType).Name} does not contain a value for {name}");
@@ -95,7 +95,7 @@ public abstract class SmartEnum<TType> : ISmartEnum where TType : SmartEnum<TTyp
     /// <returns></returns>
     public static bool operator ==(SmartEnum<TType> lhs, SmartEnum<TType> rhs)
     {
-        return rhs?.Name == lhs?.Name && rhs?.Description == lhs?.Description;
+        return rhs.Name == lhs.Name && rhs.Description == lhs.Description;
     }
 
     /// <summary>
@@ -106,7 +106,7 @@ public abstract class SmartEnum<TType> : ISmartEnum where TType : SmartEnum<TTyp
     /// <returns></returns>
     public static bool operator ==(SmartEnum<TType> lhs, string rhs)
     {
-        return string.Equals(lhs?.Name, rhs, StringComparison.CurrentCultureIgnoreCase);
+        return string.Equals(lhs.Name, rhs, StringComparison.CurrentCultureIgnoreCase);
     }
 
     /// <summary>
@@ -127,7 +127,7 @@ public abstract class SmartEnum<TType> : ISmartEnum where TType : SmartEnum<TTyp
     /// <returns></returns>
     public static bool operator !=(SmartEnum<TType> lhs, string rhs)
     {
-        return !string.Equals(lhs?.Name, rhs, StringComparison.CurrentCultureIgnoreCase);
+        return !string.Equals(lhs.Name, rhs, StringComparison.CurrentCultureIgnoreCase);
     }
 
     /// <summary>

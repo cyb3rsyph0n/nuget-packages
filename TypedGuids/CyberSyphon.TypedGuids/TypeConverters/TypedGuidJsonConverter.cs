@@ -1,7 +1,7 @@
 ﻿using System.Text.Json;
 using System.Text.Json.Serialization;
 
-namespace TypedGuids.TypeConverters;
+namespace CyberSyphon.TypedGuids.TypeConverters;
 
 /// <summary>
 ///     Used to create a JsonConverter for a TypedGuid

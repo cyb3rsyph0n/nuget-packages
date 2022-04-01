@@ -4,7 +4,7 @@ using NHibernate.Engine;
 using NHibernate.SqlTypes;
 using NHibernate.UserTypes;
 
-namespace SmartEnums.NHibernate;
+namespace CyberSyphon.SmartEnums.NHibernate;
 
 // ReSharper disable once ClassNeverInstantiated.Global
 public class BaseEnumTypeMapper<TType> : IUserType where TType : SmartEnum<TType>

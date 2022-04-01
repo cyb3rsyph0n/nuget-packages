@@ -1,4 +1,4 @@
-﻿namespace Abstractions;
+﻿namespace CyberSyphon.Abstractions;
 
 /// <summary>
 ///     Interface for a BaseEnum
