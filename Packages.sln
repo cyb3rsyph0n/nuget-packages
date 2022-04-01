@@ -21,6 +21,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CyberSyphon.SmartEnums", "S
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CyberSyphon.SmartEnums.NHibernate", "SmartEnums\CyberSyphon.SmartEnums.NHibernate\CyberSyphon.SmartEnums.NHibernate.csproj", "{FF113D05-FC6A-4381-A8A2-779C227D4430}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Security", "Security", "{4EC68D34-70DE-4A3A-A2B2-460DF6498D2F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CyberSyphon.Security", "Security\CyberSyphon.Security\CyberSyphon.Security.csproj", "{04DC2742-3AB7-405A-94E9-E50A90AA4778}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -31,6 +35,7 @@ Global
 		{ECE95B74-013C-4909-AD02-684426529C30} = {751EB725-49AF-4374-B409-BF1B7573BF70}
 		{E797FAFB-F0C8-411A-A1CB-F34EBF7079F2} = {73CCC779-B8B2-4765-A61A-AB69A099BB4C}
 		{FF113D05-FC6A-4381-A8A2-779C227D4430} = {73CCC779-B8B2-4765-A61A-AB69A099BB4C}
+		{04DC2742-3AB7-405A-94E9-E50A90AA4778} = {4EC68D34-70DE-4A3A-A2B2-460DF6498D2F}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{ECE95B74-013C-4909-AD02-684426529C30}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -53,5 +58,9 @@ Global
 		{FF113D05-FC6A-4381-A8A2-779C227D4430}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FF113D05-FC6A-4381-A8A2-779C227D4430}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FF113D05-FC6A-4381-A8A2-779C227D4430}.Release|Any CPU.Build.0 = Release|Any CPU
+		{04DC2742-3AB7-405A-94E9-E50A90AA4778}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{04DC2742-3AB7-405A-94E9-E50A90AA4778}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{04DC2742-3AB7-405A-94E9-E50A90AA4778}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{04DC2742-3AB7-405A-94E9-E50A90AA4778}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
