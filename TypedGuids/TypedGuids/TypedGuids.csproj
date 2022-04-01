@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <Authors>CyberSyphon LLC.</Authors>
+        <PackageProjectUrl>https://github.com/cyb3rsyph0n/nuget-packages</PackageProjectUrl>
+        <RepositoryUrl>https://github.com/cyb3rsyph0n/nuget-packages</RepositoryUrl>
+    </PropertyGroup>
+
+</Project>

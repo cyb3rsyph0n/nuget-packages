@@ -1,12 +1,35 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TypedGuids", "TypedGuids", "{282F3DAD-6D24-4458-A7B7-76AE3BD925E7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TypedGuids", "TypedGuids\TypedGuids\TypedGuids.csproj", "{D8707D9D-471A-4731-B91A-ED87DC450FEF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "@@UnitTests", "@@UnitTests", "{751EB725-49AF-4374-B409-BF1B7573BF70}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "@Misc", "@Misc", "{13A0214D-F2C8-46BF-AF24-774A70DE78AC}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Packages.Tests", "Packages.Tests\Packages.Tests.csproj", "{ECE95B74-013C-4909-AD02-684426529C30}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
+		{D8707D9D-471A-4731-B91A-ED87DC450FEF} = {282F3DAD-6D24-4458-A7B7-76AE3BD925E7}
+		{ECE95B74-013C-4909-AD02-684426529C30} = {751EB725-49AF-4374-B409-BF1B7573BF70}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{ECE95B74-013C-4909-AD02-684426529C30}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ECE95B74-013C-4909-AD02-684426529C30}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ECE95B74-013C-4909-AD02-684426529C30}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ECE95B74-013C-4909-AD02-684426529C30}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D8707D9D-471A-4731-B91A-ED87DC450FEF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D8707D9D-471A-4731-B91A-ED87DC450FEF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D8707D9D-471A-4731-B91A-ED87DC450FEF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D8707D9D-471A-4731-B91A-ED87DC450FEF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
