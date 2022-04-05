@@ -22,6 +22,7 @@
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\CyberSyphon.FluentVerifications\CyberSyphon.FluentVerifications.csproj" />
       <ProjectReference Include="..\TypedGuids\CyberSyphon.TypedGuids\CyberSyphon.TypedGuids.csproj" />
     </ItemGroup>
 
