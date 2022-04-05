@@ -28,7 +28,7 @@ public abstract class FluentVerifier<TType>
     /// <summary>
     ///     Name of the value for messages
     /// </summary>
-    private string? Name { get; set; }
+    private string? NameOverride { get; set; }
 
     /// <summary>
     ///     Separator to use when joining the errors
@@ -107,13 +107,13 @@ public abstract class FluentVerifier<TType>
     {
         string GetResultString() => string.Join(Separator, Rules.Select(rule => rule.GetResult(verifyValue)));
 
-        if (string.IsNullOrEmpty(Name))
+        if (string.IsNullOrEmpty(NameOverride))
         {
             return GetResultString();
         }
 
         foreach (var rule in Rules)
-            rule.SetName(Name);
+            rule.SetName(NameOverride);
 
         return GetResultString();
     }
@@ -147,7 +147,7 @@ public abstract class FluentVerifier<TType>
     /// <param name="type">Required type to throw</param>
     public FluentVerifier<TType> WithException(Type type)
     {
-        ExceptionType = type;
+        ExceptionType = type ?? throw new ArgumentNullException(nameof(type));
         return this;
     }
 
@@ -160,6 +160,9 @@ public abstract class FluentVerifier<TType>
         if (Rules.Count == 0)
             throw new InvalidOperationException("No rules have been added");
 
+        if (string.IsNullOrEmpty(message))
+            throw new ArgumentException("Message cannot be null or empty", nameof(message));
+
         Rules.Last().SetMessage(message);
         return this;
     }
@@ -170,7 +173,7 @@ public abstract class FluentVerifier<TType>
     /// <param name="separator"></param>
     public FluentVerifier<TType> WithSeparator(string separator)
     {
-        Separator = separator;
+        Separator = separator ?? throw new ArgumentNullException(nameof(separator));
         return this;
     }
 
@@ -180,7 +183,7 @@ public abstract class FluentVerifier<TType>
     /// <param name="name"></param>
     protected FluentVerifier<TType> WithName(string name)
     {
-        Name = name;
+        NameOverride = name ?? throw new ArgumentNullException(nameof(name));
         return this;
     }
 }
