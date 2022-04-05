@@ -22,7 +22,7 @@ public class FluentStringVerifier : FluentVerifier<string>
             @"^(?("")("".+?(?<!\\)""@)|(([0-9a-z]((\.(?!\.))|[-!#\$%&'\*\+/=\?\^`\{\}\|~\w])*)(?<=[0-9a-z])@))(?(\[)(\[(\d{1,3}\.){3}\d{1,3}\])|(([0-9a-z][-\w]*[0-9a-z]*\.)+[a-z0-9][\-a-z0-9]{0,22}[a-z0-9]))$"
         );
 
-        Rules.Add(new FluentVerifyRule<string>(v => v != null && regex.IsMatch(v), "must be a valid email address"));
+        Rules.Add(new FluentVerifyRule<string>(v => !string.IsNullOrEmpty(v) && regex.IsMatch(v), "must be a valid email address"));
         return this;
     }
 

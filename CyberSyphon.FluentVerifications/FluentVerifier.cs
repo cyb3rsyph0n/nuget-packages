@@ -25,7 +25,10 @@ public abstract class FluentVerifier<TType>
     /// </summary>
     private Type ExceptionType { get; set; } = null!;
 
-    private string Name { get; set; }
+    /// <summary>
+    ///     Name of the value for messages
+    /// </summary>
+    private string? Name { get; set; }
 
     /// <summary>
     ///     Separator to use when joining the errors
@@ -158,7 +161,6 @@ public abstract class FluentVerifier<TType>
             throw new InvalidOperationException("No rules have been added");
 
         Rules.Last().SetMessage(message);
-
         return this;
     }
 
@@ -179,7 +181,6 @@ public abstract class FluentVerifier<TType>
     protected FluentVerifier<TType> WithName(string name)
     {
         Name = name;
-
         return this;
     }
 }
