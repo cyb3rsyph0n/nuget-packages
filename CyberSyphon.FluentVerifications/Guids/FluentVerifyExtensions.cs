@@ -3,7 +3,7 @@
 /// <summary>
 ///     Extension methods for guid verification
 /// </summary>
-public static class FluentVerifyExtension
+public static class FluentVerifyExtensions
 {
     /// <summary>
     ///     Adds fluent verifier to nullable guid

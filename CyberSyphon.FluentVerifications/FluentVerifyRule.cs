@@ -1,45 +1,39 @@
 ﻿namespace CyberSyphon.FluentVerifications;
 
+/// <summary>
+///     Generic Fluent Verifier rule
+/// </summary>
+/// <typeparam name="TType"></typeparam>
 public class FluentVerifyRule<TType>
 {
-    private readonly Func<TType?, bool> verifyMethod;
-    private string message = null!;
+    private string message;
     private bool messageOverride;
-    private string? name;
 
     /// <summary>
     ///     Default ctor
     /// </summary>
-    /// <param name="func">Required method to execute for verification</param>
+    /// <param name="verifyFunc">Required method to execute for verification</param>
     /// <param name="message">Required message to return if check fails</param>
-    public FluentVerifyRule(Func<TType?, bool> func, string message)
+    public FluentVerifyRule(Func<TType?, bool> verifyFunc, string message)
     {
-        verifyMethod = func;
-        Message = message;
+        VerifyFunc = verifyFunc;
+        this.message = message;
     }
 
     /// <summary>
     ///     Message if check fails
     /// </summary>
-    private string Message
-    {
-        get => messageOverride ? message : $"{Name} {message}";
-        set => message = value;
-    }
+    private string Message => messageOverride ? message : $"{Name} {message}";
 
     /// <summary>
     ///     Name to use in message
     /// </summary>
-    private string? Name
-    {
-        get => $"{name ?? "Value"}";
-        set => name = value;
-    }
+    private string Name { get; set; } = "Value";
 
     /// <summary>
     ///     Method to execute to verify
     /// </summary>
-    private Func<TType?, bool> VerifyMethod => verifyMethod;
+    private Func<TType?, bool> VerifyFunc { get; }
 
     /// <summary>
     ///     Returns the result of the verification
@@ -47,7 +41,7 @@ public class FluentVerifyRule<TType>
     /// <param name="value">Required value to verify</param>
     public string? GetResult(TType? value)
     {
-        return VerifyMethod(value) ? null : Message;
+        return VerifyFunc(value) ? null : Message;
     }
 
     /// <summary>
@@ -57,15 +51,15 @@ public class FluentVerifyRule<TType>
     public void SetMessage(string newMessage)
     {
         messageOverride = true;
-        Message = newMessage;
+        message = newMessage;
     }
 
     /// <summary>
     ///     Change the name of the value to verify
     /// </summary>
-    /// <param name="newName">Required new name</param>
-    public void SetName(string newName)
+    /// <param name="name">Required new name</param>
+    public void SetName(string name)
     {
-        Name = newName;
+        Name = name;
     }
 }
