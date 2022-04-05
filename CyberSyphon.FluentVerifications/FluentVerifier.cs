@@ -103,7 +103,7 @@ public abstract class FluentVerifier<TType>
     ///     Run the verification
     /// </summary>
     /// <returns>String containing all the errors separated by commas</returns>
-    public string Result()
+    public string Error()
     {
         string GetResultString() => string.Join(Separator, Rules.Select(rule => rule.GetResult(verifyValue)));
 
@@ -123,7 +123,7 @@ public abstract class FluentVerifier<TType>
     /// </summary>
     public bool Success()
     {
-        return Result() == "";
+        return Error() == "";
     }
 
     /// <summary>
@@ -131,14 +131,14 @@ public abstract class FluentVerifier<TType>
     /// </summary>
     public void ThrowIfHasErrors()
     {
-        var result = Result();
+        var error = Error();
 
-        if (string.IsNullOrEmpty(result)) return;
+        if (string.IsNullOrEmpty(error)) return;
 
         if (ExceptionType == null)
-            throw new FluentVerificationException(result);
+            throw new FluentVerificationException(error);
 
-        throw (Exception) Activator.CreateInstance(ExceptionType, result)!;
+        throw (Exception) Activator.CreateInstance(ExceptionType, error)!;
     }
 
     /// <summary>

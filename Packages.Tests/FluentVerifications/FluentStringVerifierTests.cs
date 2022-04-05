@@ -32,7 +32,7 @@ public class FluentStringVerifierTests
     {
         string? setup = null;
 
-        setup.Verify().IsNotNull().Result().Should().Be("Value cannot be null");
+        setup.Verify().IsNotNull().Error().Should().Be("Value cannot be null");
     }
 
     [Theory]
@@ -49,15 +49,15 @@ public class FluentStringVerifierTests
     {
         string? setup = null;
 
-        setup.Verify().IsEmpty().Result().Should().Be("Value must be empty");
+        setup.Verify().IsEmpty().Error().Should().Be("Value must be empty");
     }
 
     [Fact]
     public void StringVerifierChecksStringLength()
     {
         "Hello, World!".Verify().Length(4, 13).Success().Should().BeTrue();
-        "Hello, World!".Verify().Length(4, 10).Result().Should().Be("Value must be between 4 and 10 characters long");
-        "Hel".Verify().Length(4).Result().Should().Be("Value must be at least 4 characters long");
+        "Hello, World!".Verify().Length(4, 10).Error().Should().Be("Value must be between 4 and 10 characters long");
+        "Hel".Verify().Length(4).Error().Should().Be("Value must be at least 4 characters long");
     }
 
     [Fact]
@@ -65,7 +65,7 @@ public class FluentStringVerifierTests
     {
         string? setup = null;
 
-        setup.Verify().IsNotEmpty().Result().Should().Be("Value cannot be empty");
+        setup.Verify().IsNotEmpty().Error().Should().Be("Value cannot be empty");
     }
 
     [Fact]
@@ -87,7 +87,7 @@ public class FluentStringVerifierTests
     {
         const string setup = "Hello, World!";
 
-        setup.Verify().IsEqualTo("hello, World!").Result().Should().Be("Value must be equal to 'hello, World!'");
+        setup.Verify().IsEqualTo("hello, World!").Error().Should().Be("Value must be equal to 'hello, World!'");
     }
 
     [Fact]
@@ -100,7 +100,7 @@ public class FluentStringVerifierTests
             .IsNotNullOrEmpty()
             .Length(5)
             .IsEmailAddress()
-            .Result()
+            .Error()
             .Should()
             .Be(
                 "testValue cannot be null or empty, testValue must be at least 5 characters long, testValue must be a valid email address"
@@ -138,7 +138,7 @@ public class FluentStringVerifierTests
     {
         string? setup = null;
 
-        setup.Verify().IsEmpty().WithMessage("testing").Result().Should().Be("testing");
+        setup.Verify().IsEmpty().WithMessage("testing").Error().Should().Be("testing");
     }
 
     [Fact]
@@ -146,6 +146,6 @@ public class FluentStringVerifierTests
     {
         string? setup = null;
 
-        setup.Verify().WithName(nameof(setup)).IsEmpty().Result().Should().Be("setup must be empty");
+        setup.Verify().WithName(nameof(setup)).IsEmpty().Error().Should().Be("setup must be empty");
     }
 }
