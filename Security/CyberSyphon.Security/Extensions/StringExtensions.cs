@@ -18,7 +18,6 @@ public static class StringExtensions
     ///     Compute SHA256 hash from string value
     /// </summary>
     /// <param name="s">Required string</param>
-    /// <returns></returns>
     public static string ComputeSha256Hash(this string s)
     {
         using var sha256Hash = SHA256.Create();
@@ -36,7 +35,6 @@ public static class StringExtensions
     /// </summary>
     /// <param name="s">Required base64 encrypted string</param>
     /// <param name="password">Optional password</param>
-    /// <returns></returns>
     public static string Decrypt(this string s, string password)
     {
         var passBytes = Encoding.UTF8.GetBytes(password);
@@ -68,7 +66,6 @@ public static class StringExtensions
     /// </summary>
     /// <param name="s">Required string to encrypt</param>
     /// <param name="password">Optional password</param>
-    /// <returns></returns>
     public static string Encrypt(this string s, string password)
     {
         var passBytes = Encoding.UTF8.GetBytes(password);
@@ -101,7 +98,6 @@ public static class StringExtensions
     /// </summary>
     /// <param name="stringLength">Required length of string to generate</param>
     /// <param name="validCharacters">Required list of valid characters to choose from</param>
-    /// <returns></returns>
     public static string GenerateRandomString(int stringLength, string validCharacters = PrintableChars)
     {
         var validChars = validCharacters.ToCharArray();

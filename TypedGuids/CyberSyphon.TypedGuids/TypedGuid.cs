@@ -74,7 +74,6 @@ public class TypedGuid<TType>
     /// </summary>
     /// <param name="a">Required left operand</param>
     /// <param name="b">Required right operand</param>
-    /// <returns></returns>
     public static bool operator ==(TypedGuid<TType> a, TypedGuid<TType> b)
     {
         return a.Id == b.Id;
@@ -84,7 +83,6 @@ public class TypedGuid<TType>
     ///     Override implicit operator for creating a TypedGuid from a string
     /// </summary>
     /// <param name="s"></param>
-    /// <returns></returns>
     public static implicit operator TypedGuid<TType>(string s)
     {
         return new TypedGuid<TType>(s);
@@ -94,7 +92,6 @@ public class TypedGuid<TType>
     ///     Override implicit operator for creating a TypedGuid from a guid
     /// </summary>
     /// <param name="g">Required guid to create from</param>
-    /// <returns></returns>
     public static implicit operator TypedGuid<TType>(Guid g)
     {
         return new TypedGuid<TType>(g);
@@ -105,7 +102,6 @@ public class TypedGuid<TType>
     /// </summary>
     /// <param name="a">Required left operand</param>
     /// <param name="b">Required right operand</param>
-    /// <returns></returns>
     public static bool operator !=(TypedGuid<TType> a, TypedGuid<TType> b)
     {
         return !(a == b);
@@ -114,7 +110,6 @@ public class TypedGuid<TType>
     /// <summary>
     ///     Override to string return guid value
     /// </summary>
-    /// <returns></returns>
     public override string ToString()
     {
         return Id.ToString();

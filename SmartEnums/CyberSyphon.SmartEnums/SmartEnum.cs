@@ -34,7 +34,6 @@ public abstract class SmartEnum<TType> : ISmartEnum where TType : SmartEnum<TTyp
     ///     Overrides equals
     /// </summary>
     /// <param name="obj">Required obj to compare to</param>
-    /// <returns></returns>
     public override bool Equals(object? obj)
     {
         if (ReferenceEquals(null, obj)) return false;
@@ -50,7 +49,6 @@ public abstract class SmartEnum<TType> : ISmartEnum where TType : SmartEnum<TTyp
     /// </summary>
     /// <param name="value">Required value to check against</param>
     /// <param name="comparisonType">Comparison type</param>
-    /// <returns></returns>
     public bool Equals(string value, StringComparison comparisonType = StringComparison.InvariantCultureIgnoreCase)
     {
         return Name.Equals(value, comparisonType);
@@ -81,7 +79,6 @@ public abstract class SmartEnum<TType> : ISmartEnum where TType : SmartEnum<TTyp
     /// <summary>
     ///     Override for GetHashCode
     /// </summary>
-    /// <returns></returns>
     public override int GetHashCode()
     {
         return HashCode.Combine(Description, Name);
@@ -92,7 +89,6 @@ public abstract class SmartEnum<TType> : ISmartEnum where TType : SmartEnum<TTyp
     /// </summary>
     /// <param name="lhs">Required lhs to compare</param>
     /// <param name="rhs">Required rhs to compare</param>
-    /// <returns></returns>
     public static bool operator ==(SmartEnum<TType> lhs, SmartEnum<TType> rhs)
     {
         return rhs.Name == lhs.Name && rhs.Description == lhs.Description;
@@ -103,7 +99,6 @@ public abstract class SmartEnum<TType> : ISmartEnum where TType : SmartEnum<TTyp
     /// </summary>
     /// <param name="lhs">BaseEnum to compare</param>
     /// <param name="rhs">string name to compare against</param>
-    /// <returns></returns>
     public static bool operator ==(SmartEnum<TType> lhs, string rhs)
     {
         return string.Equals(lhs.Name, rhs, StringComparison.CurrentCultureIgnoreCase);
@@ -113,7 +108,6 @@ public abstract class SmartEnum<TType> : ISmartEnum where TType : SmartEnum<TTyp
     ///     Implicit conversion for string to BaseEnum
     /// </summary>
     /// <param name="s">Required name to convert from</param>
-    /// <returns></returns>
     public static implicit operator SmartEnum<TType>?(string? s)
     {
         return s == null ? null : FindByName(s);
@@ -124,7 +118,6 @@ public abstract class SmartEnum<TType> : ISmartEnum where TType : SmartEnum<TTyp
     /// </summary>
     /// <param name="lhs">BaseEnum to compare</param>
     /// <param name="rhs">string name to compare against</param>
-    /// <returns></returns>
     public static bool operator !=(SmartEnum<TType> lhs, string rhs)
     {
         return !string.Equals(lhs.Name, rhs, StringComparison.CurrentCultureIgnoreCase);
@@ -135,7 +128,6 @@ public abstract class SmartEnum<TType> : ISmartEnum where TType : SmartEnum<TTyp
     /// </summary>
     /// <param name="lhs">Required lhs to compare</param>
     /// <param name="rhs">Required rhs to compare</param>
-    /// <returns></returns>
     public static bool operator !=(SmartEnum<TType> lhs, SmartEnum<TType> rhs)
     {
         return !(lhs == rhs);
@@ -144,7 +136,6 @@ public abstract class SmartEnum<TType> : ISmartEnum where TType : SmartEnum<TTyp
     /// <summary>
     ///     Return properties as a key value pair
     /// </summary>
-    /// <returns></returns>
     public virtual Dictionary<string, string> ToDictionary()
     {
         return new Dictionary<string, string> { { "Value", Name }, { "Text", Description } };
@@ -153,7 +144,6 @@ public abstract class SmartEnum<TType> : ISmartEnum where TType : SmartEnum<TTyp
     /// <summary>
     ///     Returns the Description of the enum created
     /// </summary>
-    /// <returns></returns>
     public override string ToString()
     {
         return Description;
@@ -163,7 +153,6 @@ public abstract class SmartEnum<TType> : ISmartEnum where TType : SmartEnum<TTyp
     ///     Override equals
     /// </summary>
     /// <param name="other">Required base enum to compare to</param>
-    /// <returns></returns>
     private bool Equals(ISmartEnum other)
     {
         return Description == other.Description && Name == other.Name;
