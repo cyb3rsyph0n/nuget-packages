@@ -2,13 +2,23 @@
 
 namespace CyberSyphon.FluentVerifications.Numbers.Integers;
 
+/// <summary>
+///     Fluent int Verifier
+/// </summary>
 public class FluentIntVerifier : FluentDecimalVerifier
 {
+    /// <summary>
+    ///     Internal constructor
+    /// </summary>
+    /// <param name="value">Required value being verified</param>
     internal FluentIntVerifier(int? value)
         : base(value)
     {
     }
 
+    /// <summary>
+    ///     Override to convert internal decimal value to integer
+    /// </summary>
     public new int? Value => (int?) base.Value;
 
     /// <inheritdoc />

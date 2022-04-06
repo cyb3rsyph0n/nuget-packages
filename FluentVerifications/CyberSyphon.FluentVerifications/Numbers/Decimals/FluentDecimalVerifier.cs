@@ -1,7 +1,14 @@
 ﻿namespace CyberSyphon.FluentVerifications.Numbers.Decimals;
 
+/// <summary>
+///     Fluent decimal verifier
+/// </summary>
 public class FluentDecimalVerifier : FluentVerifier<decimal?>
 {
+    /// <summary>
+    ///     Internal constructor
+    /// </summary>
+    /// <param name="value">Required value being verified</param>
     internal FluentDecimalVerifier(decimal? value)
         : base(value)
     {
