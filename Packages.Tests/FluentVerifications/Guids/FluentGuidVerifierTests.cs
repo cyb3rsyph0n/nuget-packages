@@ -4,7 +4,7 @@ using CyberSyphon.FluentVerifications.Guids;
 using FluentAssertions;
 using Xunit;
 
-namespace Packages.Tests.FluentVerifications;
+namespace Packages.Tests.FluentVerifications.Guids;
 
 [ExcludeFromCodeCoverage]
 public class FluentGuidVerifierTests

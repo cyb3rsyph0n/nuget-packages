@@ -2,7 +2,7 @@
 using FluentAssertions;
 using Xunit;
 
-namespace Packages.Tests.FluentVerifications;
+namespace Packages.Tests.FluentVerifications.Numbers;
 
 public class FluentIntVerifierTests
 {

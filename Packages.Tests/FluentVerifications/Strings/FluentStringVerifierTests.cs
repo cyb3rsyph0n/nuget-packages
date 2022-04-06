@@ -5,7 +5,7 @@ using CyberSyphon.FluentVerifications.Strings;
 using FluentAssertions;
 using Xunit;
 
-namespace Packages.Tests.FluentVerifications;
+namespace Packages.Tests.FluentVerifications.Strings;
 
 [ExcludeFromCodeCoverage]
 public class FluentStringVerifierTests
