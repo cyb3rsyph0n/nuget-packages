@@ -21,9 +21,36 @@ public abstract class FluentVerifier<TType>
     }
 
     /// <summary>
+    ///     Run the verification
+    /// </summary>
+    /// <value>String containing all the errors separated by commas</value>
+    public string Error
+    {
+        get
+        {
+            string GetResultString()
+            {
+                return string.Join(Separator, Rules.Select(rule => rule.GetResult(verifyValue)));
+            }
+
+            if (string.IsNullOrEmpty(NameOverride)) return GetResultString();
+
+            foreach (var rule in Rules)
+                rule.SetName(NameOverride);
+
+            return GetResultString();
+        }
+    }
+
+    /// <summary>
     ///     If set this will be the exception type thrown when a rule fails
     /// </summary>
     private Type ExceptionType { get; set; } = null!;
+
+    /// <summary>
+    ///     Return true if there are verification errors found
+    /// </summary>
+    public bool HasErrors => !Success;
 
     /// <summary>
     ///     Name of the value for messages
@@ -34,6 +61,11 @@ public abstract class FluentVerifier<TType>
     ///     Separator to use when joining the errors
     /// </summary>
     private string Separator { get; set; } = ", ";
+
+    /// <summary>
+    ///     Return true if the verification was successful
+    /// </summary>
+    public bool Success => Error == "";
 
     /// <summary>
     ///     Value that is being verified
@@ -59,14 +91,6 @@ public abstract class FluentVerifier<TType>
     {
         Rules.Add(rule);
         return this;
-    }
-
-    /// <summary>
-    ///     Return true if there are verification errors found
-    /// </summary>
-    public bool HasErrors()
-    {
-        return !Success();
     }
 
     /// <summary>
@@ -100,38 +124,11 @@ public abstract class FluentVerifier<TType>
     }
 
     /// <summary>
-    ///     Run the verification
-    /// </summary>
-    /// <returns>String containing all the errors separated by commas</returns>
-    public string Error()
-    {
-        string GetResultString() => string.Join(Separator, Rules.Select(rule => rule.GetResult(verifyValue)));
-
-        if (string.IsNullOrEmpty(NameOverride))
-        {
-            return GetResultString();
-        }
-
-        foreach (var rule in Rules)
-            rule.SetName(NameOverride);
-
-        return GetResultString();
-    }
-
-    /// <summary>
-    ///     Return true if the verification was successful
-    /// </summary>
-    public bool Success()
-    {
-        return Error() == "";
-    }
-
-    /// <summary>
     ///     Throws exception if there are verification errors found
     /// </summary>
     public void ThrowIfHasErrors()
     {
-        var error = Error();
+        var error = Error;
 
         if (string.IsNullOrEmpty(error)) return;
 

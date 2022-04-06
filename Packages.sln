@@ -6,6 +6,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CyberSyphon.TypedGuids", "T
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "@@UnitTests", "@@UnitTests", "{751EB725-49AF-4374-B409-BF1B7573BF70}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FluentVerifications", "FluentVerifications", "{861D064F-CAA7-4929-8646-44080D2176C4}"
+EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "@Misc", "@Misc", "{13A0214D-F2C8-46BF-AF24-774A70DE78AC}"
 	ProjectSection(SolutionItems) = preProject
 		.gitignore = .gitignore
@@ -27,7 +29,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Security", "Security", "{4E
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CyberSyphon.Security", "Security\CyberSyphon.Security\CyberSyphon.Security.csproj", "{04DC2742-3AB7-405A-94E9-E50A90AA4778}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CyberSyphon.FluentVerifications", "CyberSyphon.FluentVerifications\CyberSyphon.FluentVerifications.csproj", "{DB6FE074-B059-4358-9CB3-D566E7C95DEE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CyberSyphon.FluentVerifications", "FluentVerifications\CyberSyphon.FluentVerifications\CyberSyphon.FluentVerifications.csproj", "{DB6FE074-B059-4358-9CB3-D566E7C95DEE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -40,6 +42,7 @@ Global
 		{E797FAFB-F0C8-411A-A1CB-F34EBF7079F2} = {73CCC779-B8B2-4765-A61A-AB69A099BB4C}
 		{FF113D05-FC6A-4381-A8A2-779C227D4430} = {73CCC779-B8B2-4765-A61A-AB69A099BB4C}
 		{04DC2742-3AB7-405A-94E9-E50A90AA4778} = {4EC68D34-70DE-4A3A-A2B2-460DF6498D2F}
+		{DB6FE074-B059-4358-9CB3-D566E7C95DEE} = {861D064F-CAA7-4929-8646-44080D2176C4}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{ECE95B74-013C-4909-AD02-684426529C30}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
