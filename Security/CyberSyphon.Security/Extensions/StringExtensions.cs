@@ -110,43 +110,58 @@ public static class StringExtensions
     }
 
     /// <summary>
-    ///     Generate a salted hash of the incoming string
+    ///     Generate salted hash from string
     /// </summary>
-    /// <param name="s">string to salt and hash</param>
-    /// <param name="knownSalt">Required known salt value to add to string</param>
-    /// <param name="randSaltLength">number of bytes to use for salt</param>
-    /// <returns>returns a byte array of the salted hash</returns>
-    public static string GenerateSaltedHash(this string s, string knownSalt, int randSaltLength = 8)
+    /// <param name="s">Required string input to be hashed</param>
+    /// <param name="knownSalt">Required known salt value</param>
+    /// <param name="randSaltLength">Optional number of random salt bytes to be added</param>
+    /// <param name="iterations">Optional number of iterations to perform</param>
+    /// <param name="hashSize">Optional desired number of hash bytes, will be added to the length of random salt bytes</param>
+    /// <returns></returns>
+    public static string GenerateSaltedHash(
+        this string s,
+        string knownSalt,
+        int randSaltLength = 32,
+        int iterations = 100000,
+        int hashSize = 32
+    )
     {
-        var randomSalt = GenerateRandomString(randSaltLength);
-        var randomSaltBytes = Encoding.Default.GetBytes(randomSalt);
+        var provider = RandomNumberGenerator.Create();
+        var saltBytes = new byte[randSaltLength];
+        provider.GetBytes(saltBytes);
 
-        var computedHash = SHA256.Create().ComputeHash(Encoding.Default.GetBytes(randomSalt + s + knownSalt));
-        var result = new byte[computedHash.Length + randomSalt.Length];
+        Console.WriteLine(Convert.ToBase64String(saltBytes));
 
-        Array.Copy(computedHash, result, computedHash.Length);
-        Array.Copy(randomSaltBytes, 0, result, computedHash.Length, randomSaltBytes.Length);
-
-        return Convert.ToBase64String(result);
+        var pbkdf2 = new Rfc2898DeriveBytes(s + knownSalt, saltBytes, iterations);
+        return Convert.ToBase64String(pbkdf2.GetBytes(hashSize).Concat(saltBytes).ToArray());
     }
 
     /// <summary>
-    ///     Verifies that a salted hash matches the incoming value
+    ///     Verify a salted hash
     /// </summary>
-    /// <param name="s">Base64 encoded string to compare to</param>
-    /// <param name="believedValue">this is the believed value</param>
+    /// <param name="s">Required base64 encoded hash value</param>
+    /// <param name="believedValue">Required believed value of the string</param>
     /// <param name="knownSalt">Required known salt value</param>
-    /// <param name="randomSaltLength">number of bytes to use as the salt</param>
-    /// <returns>true if the believed value matches the salted hash</returns>
-    public static bool VerifySaltedHash(this string s, string believedValue, string knownSalt, int randomSaltLength = 8)
+    /// <param name="randSaltLength">Optional how many bytes of random salt to be added to the hash</param>
+    /// <param name="iterations">Optional number of iterations to perform during hash</param>
+    /// <param name="hashSize">Required desired number of hash bytes, this will be added to the length of random salt bytes</param>
+    /// <returns></returns>
+    public static bool VerifySaltedHash(
+        this string s,
+        string believedValue,
+        string knownSalt,
+        int randSaltLength = 32,
+        int iterations = 100000,
+        int hashSize = 32
+    )
     {
-        var actualBytes = Convert.FromBase64String(s);
-        var randomSaltBytes = actualBytes.TakeLast(randomSaltLength).ToArray();
-        var randomSalt = Encoding.Default.GetString(randomSaltBytes);
+        var bytes = Convert.FromBase64String(s);
+        var rndSalt = bytes.Skip(bytes.Length - randSaltLength).ToArray();
 
-        var computedHash = SHA256.Create()
-            .ComputeHash(Encoding.Default.GetBytes(randomSalt + believedValue + knownSalt));
+        Console.WriteLine(Convert.ToBase64String(rndSalt));
 
-        return actualBytes.Take(actualBytes.Length - randomSaltLength).SequenceEqual(computedHash);
+        var pbkdf2 = new Rfc2898DeriveBytes(believedValue + knownSalt, rndSalt, iterations);
+
+        return pbkdf2.GetBytes(hashSize).SequenceEqual(bytes.Take(hashSize));
     }
 }
